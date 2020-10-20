@@ -1,0 +1,23 @@
+.sidebar {
+  background: $very-dark-blue;
+
+  .el-menu {
+    .el-menu-item {
+      a {
+        color: $grayish-blue;
+      }
+
+      &.is-active {
+        background: $very-dark-desaturated-blue;
+
+        a {
+          color: $white;
+        }
+      }
+
+      &:hover {
+        background: $very-dark-desaturated-blue;
+      }
+    } 
+  }
+}

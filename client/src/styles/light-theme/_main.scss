@@ -1,0 +1,48 @@
+@import './form';
+@import './scrollbar';
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Roboto';
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+[v-cloak] {
+  display: none
+}
+
+/*
+ * Element UI
+ */
+
+.el-input__inner:focus,
+.el-textarea__inner:focus {
+  border-color: $gray;
+  outline:0
+}
+
+.el-textarea__inner {
+  font-family: 'Roboto';
+}
+
+.el-menu,
+.el-calendar {
+  background: transparent;
+}

@@ -1,0 +1,18 @@
+.el-table {
+  tr,
+  th {
+    background-color: $very-dark-desaturated-blue;
+
+    .cell {
+      color: $white;
+    }
+  }
+
+  tr:hover > td {
+    background: transparent;
+  }
+
+  .success-row {
+    background: $very-dark-desaturated-blue !important;
+  }
+}

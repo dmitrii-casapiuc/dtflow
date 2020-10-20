@@ -1,0 +1,13 @@
+.el-dropdown-menu {
+  background-color: $very-dark-desaturated-blue;
+  border-color: transparent;
+
+  li {
+    color: $white;
+
+    &:hover {
+      background-color: $very-dark-blue;
+      color: $white;
+    }
+  }
+}

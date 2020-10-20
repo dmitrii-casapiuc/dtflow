@@ -1,0 +1,6 @@
+build/*.js
+.idea/
+src/assets
+public
+dist
+.env.production

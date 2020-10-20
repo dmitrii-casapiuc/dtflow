@@ -1,0 +1,25 @@
+.el-button-group {
+  .el-button {
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      background-color: $very-dark-grayish-blue; 
+    }
+  }
+}
+
+.el-button--primary {
+  background-color: $soft-blue;
+  border-color: transparent;
+}
+
+.el-button--default {
+  background-color: transparent;
+  color: $white;
+  border-color: transparent;
+
+  &:hover {
+    background-color: $very-dark-grayish-blue;
+  }
+}

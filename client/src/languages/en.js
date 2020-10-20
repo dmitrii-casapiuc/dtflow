@@ -1,0 +1,90 @@
+export default {
+  menu: {
+    dailyPlanner: 'Daily Planner',
+    notes: 'Notes',
+    profile: 'Profile',
+    logOut: 'Log out',
+    analytics: 'Analytics'
+  },
+  auth: {
+    signIn: 'Sign In',
+    name: 'Name',
+    email: 'Email',
+    password: 'Password',
+    confirmPassword: 'Confirm password',
+    login: 'Login',
+    noAccount: 'No account',
+    account: 'Already have an account',
+    register: 'Register',
+    createAccount: 'Create acсount',
+    submit: 'Submit',
+    male: 'Male',
+    female: 'Female'
+  },
+  authRules: {
+    enterName: 'Please enter name',
+    enterEmail: 'Please enter email',
+    correctEmail: 'Please input correct email address',
+    enterPassword: 'Please enter password',
+    enterPasswordAgain: 'Please enter password again',
+    matchPassword: 'Password does not match',
+    lengthPassword: 'Length should be 6 to 10'
+  },
+  errors: {
+    'success-register': 'You have successfully registered. Please come in.',
+    login: 'Log in to get started',
+    logout: 'You are logged out',
+    'no-authorization': 'Session timed out'
+  },
+  errorsBackend: {
+    userHas: 'This user already exists',
+    userCreate: 'User created',
+    userNoFound: 'User is not found',
+    userWrongPassword: 'Invalid password. Try again',
+    tryAgain: 'Something went wrong. Try again'
+  },
+  todos: {
+    question: 'What needs to be done?',
+    title: 'Title',
+    edit: 'Edit',
+    delete: 'Delete',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    editTodo: 'Edit todo',
+    search: 'Search',
+    filters: 'Filters',
+    all: 'All',
+    completed: 'Completed',
+    noCompleted: 'No completed'
+  },
+  notes: {
+    addNote: 'Add note',
+    editNote: 'Edit note',
+    title: 'Title',
+    description: 'Description',
+    color: 'Color',
+    messageCreate: 'You have successfully created a new note',
+    messageUpdate: 'You have successfully updated a new note',
+    enterTitle: 'Please enter title',
+    cancel: 'Cancel',
+    confirm: 'Confirm'
+  },
+  profile: {
+    yourEmail: 'Your email',
+    change: 'Change',
+    restricUploadImage: 'Do not upload more than 1 file',
+    updatedProfile: 'You have successfully updated your profile'
+  },
+  errorPages: {
+    backHome: 'Back Home',
+    errorSubtitle: 'Sorry, the page you visited does not exist.'
+  },
+  analytics: {
+    numberTasks: 'Number of tasks'
+  },
+  datePicker: {
+    prevMonth: 'Previous Month',
+    currentMonth: 'Current Month',
+    nextMonth: 'Next Month'
+  }
+}

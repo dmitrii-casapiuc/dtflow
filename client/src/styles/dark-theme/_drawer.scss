@@ -1,0 +1,12 @@
+.el-drawer,
+.rightPanel {
+  background-color: $very-dark-blue;
+
+  .drawer-title {
+    color: $white;
+  }
+
+  .drawer-section .subheading {
+    color: $grayish-blue;
+  }
+}

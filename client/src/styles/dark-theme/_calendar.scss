@@ -1,0 +1,38 @@
+.el-calendar {
+  .el-calendar__title {
+    color: $white;
+  }
+
+  .el-calendar__body {
+    thead {
+      th {
+        color: $white;
+      }
+    }
+
+    tr {
+      td {
+        &.is-selected,
+        &.is-today {
+          background: $very-dark-grayish-blue;
+
+          .el-calendar-day {
+            color: $white;
+  
+            &:hover {
+              background: $very-dark-grayish-blue;
+            }
+          }
+        }
+
+        .el-calendar-day {
+          color: $grayish-blue;
+
+          &:hover {
+            background: $very-dark-grayish-blue;
+          }
+        }
+      }
+    }
+  }
+}

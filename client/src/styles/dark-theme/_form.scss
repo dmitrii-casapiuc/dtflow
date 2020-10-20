@@ -1,0 +1,9 @@
+.el-dialog {
+  background-color: $very-dark-blue;
+  color: $white;
+
+  .el-dialog__title,
+  .el-form-item__label {
+    color: $white;
+  }
+}

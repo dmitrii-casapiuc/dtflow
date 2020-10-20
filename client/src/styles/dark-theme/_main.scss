@@ -1,0 +1,32 @@
+.dark-theme {
+  @import './buttons';
+  @import './calendar';
+  @import './sidebar';
+  @import './drawer';
+  @import './table';
+  @import './dropdown-menu';
+  @import './form';
+  @import './picker';
+
+  background-color: $very-dark-desaturated-blue;
+
+  .title,
+  .date {
+    color: $white;
+  }
+
+  .navbar {
+    background-color: $very-dark-blue;
+  }
+
+  input,
+  textarea,
+  .el-loading-mask {
+    background-color: $very-dark-desaturated-blue;
+    color: $white;
+  }
+
+  .popper__arrow {
+    display: none;
+  }
+}

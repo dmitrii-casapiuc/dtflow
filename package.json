@@ -1,0 +1,39 @@
+{
+  "name": "dtflow",
+  "version": "1.0.0",
+  "description": "Admin panel",
+  "main": "index.js",
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.14.4"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run serve --prefix client",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm run client:install && npm run client:build"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "Dmitrii Casapciuc",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.9",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "nodemon": "^2.0.6"
+  }
+}
