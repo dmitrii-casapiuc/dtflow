@@ -80,6 +80,11 @@ export default {
     ElButton,
     ElButtonGroup
   },
+  provide() {
+    return {
+      elCalendar: this
+    }
+  },
   props: {
     // eslint-disable-next-line vue/require-default-prop
     value: [Date, String, Number],
@@ -100,11 +105,6 @@ export default {
     firstDayOfWeek: {
       type: Number,
       default: 1
-    }
-  },
-  provide() {
-    return {
-      elCalendar: this
     }
   },
   data() {
@@ -238,7 +238,7 @@ export default {
       }
       if (day === this.formatedDate) return
 
-      this.$emit('currentMonth', day)
+      this.$emit('current-month', day)
       this.pickDay(day)
     },
     toDate(val) {

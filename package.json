@@ -13,8 +13,20 @@
     "client": "npm run serve --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
+    "client:lint": "npm run lint --prefix client",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "npm run client:install && npm run client:build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./client/src/**/*.{js,vue}": [
+      "npm run client:lint",
+      "git add"
+    ]
   },
   "keywords": [
     "vue"
@@ -34,6 +46,8 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
     "nodemon": "^2.0.6"
   }
 }
