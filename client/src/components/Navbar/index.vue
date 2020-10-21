@@ -61,7 +61,7 @@ function switchLanguageName(lang) {
     return 'English'
   }
 
-  return 'Русский 2'
+  return 'Русский 3'
 }
 
 export default {
