@@ -3,7 +3,6 @@
     <div class="title">{{ $t("menu.analytics") }}</div>
     <Chart
       :key="isLanguageChanged"
-      method-chart="fetchAnalyticsTodo"
       title-chart="analytics.numberTasks"
     />
   </div>

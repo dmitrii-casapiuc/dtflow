@@ -24,7 +24,8 @@
   },
   "lint-staged": {
     "./client/src/**/*.{js,vue}": [
-      "npm run client:lint"
+      "npm run client:lint",
+      "git add"
     ]
   },
   "keywords": [

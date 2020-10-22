@@ -34,6 +34,7 @@
 <script>
 import { Bar } from 'vue-chartjs'
 import fecha from 'element-ui/src/utils/date'
+import { fetchAnalyticsTodo } from '@/api/analytic'
 
 export default {
   extends: Bar,
@@ -72,9 +73,44 @@ export default {
   },
   methods: {
     async init(date) {
-      const chartData = await this.$store.dispatch(this.methodChart, date)
+      // const chartData = await this.$store.dispatch(this.methodChart, date)
 
-      const data = {
+      fetchAnalyticsTodo(date)
+        .then(response => {
+          const data = {
+            labels: response.labels,
+            datasets: [{
+              label: this.$t(this.titleChart),
+              data: response.data,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1
+            }]
+          }
+
+          const options = {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+              xAxes: [{
+                gridLines: {
+                  display: false
+                }
+              }]
+            }
+          }
+
+          this.renderChart(data, options)
+          this.loading = false
+        })
+        .catch(() => {
+          this.loading = false
+        })
+
+      /* const data = {
         labels: chartData.labels,
         datasets: [{
           label: this.$t(this.titleChart),
@@ -101,7 +137,7 @@ export default {
       }
 
       this.renderChart(data, options)
-      this.loading = false
+      this.loading = false */
     },
     selectDate(type) {
       let day = ''
