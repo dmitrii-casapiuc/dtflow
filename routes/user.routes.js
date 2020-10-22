@@ -17,7 +17,7 @@ router.get('/info', auth, async (req, res) => {
       avatarUrl: user[0].avatarUrl
     })
   } catch (error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 
@@ -41,7 +41,7 @@ router.patch('/', auth, upload.single('avatar'), async (req, res) => {
 
     res.status(200).json(user)
   } catch (error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 

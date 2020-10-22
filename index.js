@@ -8,7 +8,6 @@ const keys = require('./config/keys')
 const authRoutes = require('./routes/auth.routes')
 const userRoutes = require('./routes/user.routes')
 const todoRoutes = require('./routes/todo.routes')
-const noteRoutes = require('./routes/note.routes')
 const analyticsRoutes = require('./routes/analytic.routes')
 
 const app = express()
@@ -23,7 +22,6 @@ app.use(cors())
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/todos', todoRoutes)
-app.use('/api/notes', noteRoutes)
 app.use('/api/analytics', analyticsRoutes)
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,7 +1,6 @@
 export default {
   menu: {
     dailyPlanner: 'Daily Planner',
-    notes: 'Notes',
     profile: 'Profile',
     logOut: 'Log out',
     analytics: 'Analytics'
@@ -19,7 +18,8 @@ export default {
     createAccount: 'Create acсount',
     submit: 'Submit',
     male: 'Male',
-    female: 'Female'
+    female: 'Female',
+    successRegister: 'You have successfully registered. Please come in.'
   },
   authRules: {
     enterName: 'Please enter name',
@@ -31,7 +31,6 @@ export default {
     lengthPassword: 'Length should be 6 to 10'
   },
   errors: {
-    'success-register': 'You have successfully registered. Please come in.',
     login: 'Log in to get started',
     logout: 'You are logged out',
     'no-authorization': 'Session timed out'
@@ -56,18 +55,6 @@ export default {
     all: 'All',
     completed: 'Completed',
     noCompleted: 'No completed'
-  },
-  notes: {
-    addNote: 'Add note',
-    editNote: 'Edit note',
-    title: 'Title',
-    description: 'Description',
-    color: 'Color',
-    messageCreate: 'You have successfully created a new note',
-    messageUpdate: 'You have successfully updated a new note',
-    enterTitle: 'Please enter title',
-    cancel: 'Cancel',
-    confirm: 'Confirm'
   },
   profile: {
     yourEmail: 'Your email',

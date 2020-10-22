@@ -4,7 +4,6 @@ import VueMoment from 'vue-moment'
 import VueMasonry from 'vue-masonry-css'
 import Element from 'element-ui'
 
-import { settingsAxios } from './utils'
 import dateFilter from '@/filters/date.filter'
 import i18n from '@/languages'
 import router from './router'
@@ -13,8 +12,6 @@ import App from './App.vue'
 
 import 'element-ui/lib/theme-chalk/index.css'
 import './styles/_index.scss'
-
-settingsAxios.setupInterceptors(store)
 
 Vue.config.productionTip = false
 Vue.use(Element, {

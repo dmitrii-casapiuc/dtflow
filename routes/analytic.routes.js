@@ -53,7 +53,7 @@ router.get('/todo', auth, async (req, res) => {
 
     res.status(200).json(analyticsTodo)
   } catch(error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 

@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import EmptyLayout from '@/layouts/EmptyLayout'
-import MainLayout from '@/layouts/MainLayout'
-import AuthLayout from '@/layouts/AuthLayout'
+import EmptyLayout from '@/layouts/empty'
+import MainLayout from '@/layouts/main'
+import AuthLayout from '@/layouts/auth'
 
 export default {
   components: {

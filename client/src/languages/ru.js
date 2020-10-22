@@ -1,7 +1,6 @@
 export default {
   menu: {
     dailyPlanner: 'Ежедневник',
-    notes: 'Заметки',
     profile: 'Профиль',
     logOut: 'Выйти',
     analytics: 'Аналитика'
@@ -56,18 +55,6 @@ export default {
     all: 'Все',
     completed: 'Завершенные',
     noCompleted: 'Не завершенные'
-  },
-  notes: {
-    addNote: 'Добавить заметку',
-    editNote: 'Редактировать заметку',
-    title: 'Название',
-    description: 'Описание',
-    color: 'Цвет',
-    messageCreate: 'Вы успешно создали новую заметку',
-    messageUpdate: 'Вы успешно обновили заметку',
-    enterTitle: 'Пожалуйста, введите название',
-    cancel: 'Отменить',
-    confirm: 'Подтвердить'
   },
   profile: {
     yourEmail: 'Ваша электронная почта',

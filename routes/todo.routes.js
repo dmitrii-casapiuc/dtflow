@@ -26,7 +26,7 @@ router.get('/', auth, async (req, res) => {
 
     res.status(200).json(todos)
   } catch(error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 
@@ -45,7 +45,7 @@ router.get('/month', auth, async (req, res) => {
 
     res.status(200).json(todos)
   } catch(error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 
@@ -93,7 +93,7 @@ router.post('/', auth, async (req, res) => {
       res.status(201).json(todo.items[0])
     }
   } catch (error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 
@@ -108,7 +108,7 @@ router.delete('/:id', auth, async (req, res) => {
     )
     res.status(200).json()
   } catch (error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 
@@ -128,7 +128,7 @@ router.patch('/sort', auth, async (req, res) => {
 
     res.status(200).json({})
   } catch (error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 
@@ -204,7 +204,7 @@ router.patch('/:id', auth, async (req, res) => {
       res.status(200).json({status: 'update'})
     }
   } catch (error) {
-    errorHandler(res, error, 'tryAgain')
+    errorHandler(res, error, 'Something went wrong. Try again')
   }
 })
 

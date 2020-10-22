@@ -10,6 +10,7 @@ export default {
       state.todos = [...state.todos, todo]
     },
     FETCH_TODOS: (state, todos) => {
+      // eslint-disable-next-line no-prototype-builtins
       state.todos = todos.hasOwnProperty('items') ? todos.items : []
     },
     FETCH_TODOS_BY_MONTH: (state, todos) => {
