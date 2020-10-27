@@ -42,6 +42,7 @@
 
 <script>
 import _ from 'lodash'
+import { updateTodo } from '@/api/todo'
 
 export default {
   props: {
@@ -86,10 +87,13 @@ export default {
       const calendarDate = this.$moment(this.calendarDate).format('YYYY-MM-DD')
       todo.date = this.$moment(todo.date).format('YYYY-MM-DD')
 
-      await this.$store.dispatch('updateTodo', {
-        todo,
-        calendarDate
-      })
+      try {
+        await updateTodo({ todo, calendarDate })
+        // eslint-disable-next-line vue/custom-event-name-casing
+        this.$emit('handlerGetList', calendarDate)
+      } catch (error) {
+        console.log(error)
+      }
 
       this.handlerCancelEdit()
       this.loading = false

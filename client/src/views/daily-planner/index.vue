@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Calendar from '@/components/calendar'
 import Todos from './components/todos'
+import { fetchTodosByMonth } from '@/api/todo'
 
 export default {
   name: 'DailyPlanner',
@@ -48,12 +48,13 @@ export default {
     return {
       drawer: false,
       currentDate: '',
-      loading: true,
-      isLanguageChanged: 1
+      loading: false,
+      isLanguageChanged: 1,
+      todosByMonth: [],
+      listQuery: {}
     }
   },
   computed: {
-    ...mapGetters(['todosByMonth']),
     currentDayClass() {
       return date => {
         const currentDate = this.$moment(date).format('YYYY-MM-DD')
@@ -88,23 +89,34 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch('fetchTodosByMonth', new Date())
-    this.loading = false
+    this.listQuery = { date: new Date() }
+    await this.getList()
   },
   methods: {
     handlerDrawer(date) {
       this.drawer = true
       this.currentDate = date
     },
-    async getCurrentMonth(date) {
-      await this.$store.dispatch('fetchTodosByMonth', date)
+    async getList() {
+      this.loading = true
+      try {
+        const response = await fetchTodosByMonth(this.listQuery)
+        this.todosByMonth = response
+        this.listQuery = {}
+      } catch (error) {
+        console.log(error)
+      }
       this.loading = false
+    },
+    async getCurrentMonth(date) {
+      console.log(date)
+      this.listQuery = { date }
+      await this.getList()
     },
     async handleClose(done) {
       done()
-      this.loading = true
-      await this.$store.dispatch('fetchTodosByMonth', this.currentDate)
-      this.loading = false
+      this.listQuery = { date: this.currentDate }
+      await this.getList()
     }
   }
 }

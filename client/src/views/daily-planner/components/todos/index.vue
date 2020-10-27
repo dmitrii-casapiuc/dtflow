@@ -96,13 +96,14 @@
       :temp-current-todo="tempCurrentTodo"
       :calendar-date="currentDate"
       @handlerCancelDialogForm="handlerCancelDialogForm"
+      @handlerGetList="getList"
     />
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import ElTableDraggable from 'element-ui-el-table-draggable'
+import { fetchTodos, addTodo, deleteTodo, updateTodo, dragAndDropTodos } from '@/api/todo'
 import Form from '../form'
 
 export default {
@@ -118,7 +119,7 @@ export default {
   data() {
     return {
       newTodo: '',
-      loading: true,
+      loading: false,
       search: '',
       dialogFormVisible: false,
       tempCurrentTodo: {},
@@ -136,11 +137,11 @@ export default {
           value: 'no-completed'
         }
       ],
-      filterOption: 'all'
+      filterOption: 'all',
+      todos: []
     }
   },
   computed: {
-    ...mapGetters(['todos']),
     filterTodos() {
       let currentTodos
       const searchTodos = this.todos.filter(
@@ -175,12 +176,8 @@ export default {
   },
   watch: {
     currentDate: async function(value) {
-      this.loading = true
-      await this.$store.dispatch(
-        'fetchTodos',
-        this.$moment(value).format('YYYY-MM-DD')
-      )
-      this.loading = false
+      const date = this.$moment(value).format('YYYY-MM-DD')
+      this.getList(date)
     },
     currentStatusDrawer(status) {
       if (!status) {
@@ -191,13 +188,20 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch(
-      'fetchTodos',
-      this.$moment(this.currentDate).format('YYYY-MM-DD')
-    )
-    this.loading = false
+    const date = this.$moment(this.currentDate).format('YYYY-MM-DD')
+    this.getList(date)
   },
   methods: {
+    async getList(date) {
+      this.loading = true
+      try {
+        const response = await fetchTodos({ date })
+        this.todos = response?.items || []
+      } catch (error) {
+        console.log(error)
+      }
+      this.loading = false
+    },
     tableRowClassName({ row }) {
       if (row.completed) {
         return 'success-row'
@@ -207,12 +211,18 @@ export default {
     },
     async dropRow(data) {
       if (this.filterOption === 'all') {
-        this.loading = true
         const date = this.$moment(this.currentDate).format('YYYY-MM-DD')
-        await this.$store.dispatch('dragAndDropTodos', {
-          todos: data.list,
-          date
-        })
+        this.loading = true
+
+        try {
+          await dragAndDropTodos({
+            todos: data.list,
+            date
+          })
+          this.getList(date)
+        } catch (error) {
+          console.log(error)
+        }
         this.loading = false
       }
     },
@@ -237,26 +247,27 @@ export default {
         completed: false
       }
 
-      await this.$store
-        .dispatch('addTodo', {
-          todo,
-          date
-        })
-        .then(() => {
-          this.newTodo = ''
-          this.loading = false
-        })
-        .catch(() => {
-          this.loading = false
-        })
+      this.loading = true
+      try {
+        await addTodo({ todo, date })
+        this.newTodo = ''
+        this.getList(date)
+      } catch (error) {
+        console.log(error)
+      }
+      this.loading = false
     },
     async handlerCompleted(todo) {
-      this.loading = true
       const calendarDate = this.$moment(this.currentDate).format('YYYY-MM-DD')
-      await this.$store.dispatch('updateTodo', {
-        todo,
-        calendarDate
-      })
+      this.loading = true
+
+      try {
+        await updateTodo({ todo, calendarDate })
+        this.getList(calendarDate)
+      } catch (error) {
+        console.log(error)
+      }
+
       this.loading = false
     },
     handlerUpdateEdit(row) {
@@ -272,12 +283,16 @@ export default {
       this.dialogFormVisible = true
     },
     async handlerDelete(todo) {
-      this.loading = true
       const date = this.$moment(this.currentDate).format('YYYY-MM-DD')
-      await this.$store.dispatch('deleteTodo', {
-        todo,
-        date
-      })
+      this.loading = true
+
+      try {
+        await deleteTodo({ todo, date })
+        this.getList(date)
+      } catch (error) {
+        console.log(error)
+      }
+
       this.loading = false
     },
     handlerCancelDialogForm() {

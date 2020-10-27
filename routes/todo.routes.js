@@ -21,7 +21,7 @@ router.get('/', auth, async (req, res) => {
     if (items.length > 0) {
       todos = items[0]
     } else {
-      todos = {}
+      todos = []
     }
 
     res.status(200).json(todos)
