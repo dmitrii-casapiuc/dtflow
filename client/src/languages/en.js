@@ -35,13 +35,6 @@ export default {
     logout: 'You are logged out',
     'no-authorization': 'Session timed out'
   },
-  errorsBackend: {
-    userHas: 'This user already exists',
-    userCreate: 'User created',
-    userNoFound: 'User is not found',
-    userWrongPassword: 'Invalid password. Try again',
-    tryAgain: 'Something went wrong. Try again'
-  },
   todos: {
     question: 'What needs to be done?',
     title: 'Title',

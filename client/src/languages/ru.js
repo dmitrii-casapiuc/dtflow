@@ -35,13 +35,6 @@ export default {
     logout: 'Вы вышли из системы',
     'no-authorization': 'Время сессии истекло'
   },
-  errorsBackend: {
-    userHas: 'Такой пользователь уже существует',
-    userCreate: 'Пользователь создан',
-    userNoFound: 'Пользователь не найден',
-    userWrongPassword: 'Неверный пароль, попробуйте снова',
-    tryAgain: 'Что-то пошло не так, попробуйте снова'
-  },
   todos: {
     question: 'Что должно быть сделано?',
     title: 'Название',
