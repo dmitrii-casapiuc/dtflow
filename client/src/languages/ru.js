@@ -29,12 +29,6 @@ export default {
     matchPassword: 'Пароль не совпадает',
     lengthPassword: 'Длина должна быть от 6 до 10'
   },
-  errors: {
-    'success-register': 'Вы успешно зарегистрировались. Пожалуйста войдите.',
-    login: 'Для начала войдите в систему',
-    logout: 'Вы вышли из системы',
-    'no-authorization': 'Время сессии истекло'
-  },
   todos: {
     question: 'Что должно быть сделано?',
     title: 'Название',

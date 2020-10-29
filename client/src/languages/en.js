@@ -30,11 +30,6 @@ export default {
     matchPassword: 'Password does not match',
     lengthPassword: 'Length should be 6 to 10'
   },
-  errors: {
-    login: 'Log in to get started',
-    logout: 'You are logged out',
-    'no-authorization': 'Session timed out'
-  },
   todos: {
     question: 'What needs to be done?',
     title: 'Title',
