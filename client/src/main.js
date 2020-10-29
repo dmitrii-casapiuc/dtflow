@@ -28,6 +28,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-store.dispatch('autoLanguage')
-i18n.locale = store.getters.language

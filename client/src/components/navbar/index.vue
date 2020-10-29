@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import FlagEnglish from '@/assets/svg/englishFlag.svg'
 import FlagRussian from '@/assets/svg/russianFlag.svg'
 
@@ -99,7 +99,6 @@ export default {
     clearInterval(this.interval)
   },
   methods: {
-    ...mapActions(['updateLanguage']),
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push('/login')
@@ -110,7 +109,7 @@ export default {
     changeLanguage(lang) {
       this.$i18n.locale = lang
       this.langName = switchLanguageName(lang)
-      this.updateLanguage(lang)
+      this.$store.dispatch('app/setLanguage', lang)
     }
   }
 }
